@@ -108,17 +108,13 @@ export const InstructionBlock = ({ type }) => {
 };
 
 // Function to get the original onclick function from the first button
-const getOriginalOnclickFunction = () => {
-  const targetButton = document.querySelector(
-    'button[aria-label^="Copy install command to clipboard"]:not([aria-label*=" yarn "]):not([aria-label*=" bun "]):not([aria-label*=" pnpm "])'
-  );
+// const getOriginalOnclickFunction = () => {
+//   const targetButton = document.querySelector(
+//     'button[aria-label^="Copy install command to clipboard"]:not([aria-label*=" yarn "]):not([aria-label*=" bun "]):not([aria-label*=" pnpm "])'
+//   );
 
-  return targetButton ? targetButton.onclick : null;
-};
-
-// const root = document.createElement("div");
-// root.id = "crx-root";
-// document.body.appendChild(root);
+//   return targetButton ? targetButton.onclick : null;
+// };
 
 const root = document.createElement("div");
 // Find the <p> element with the specified class
@@ -129,5 +125,33 @@ if (targetParagraph) {
   // Insert your element after the target <p> element
   targetParagraph.insertAdjacentElement("afterend", root);
 }
+// const deepCloneNode = (node) => {
+//   const clone = node.cloneNode(false); // Shallow clone without children
 
+//   // Clone and append each child node recursively
+//   for (const child of node.childNodes) {
+//     clone.appendChild(deepCloneNode(child));
+//   }
+
+//   return clone;
+// };
+// const Temp = () => {
+//   useEffect(() => {
+//     // Find the <p> element with the specified class
+//     const targetClass = "d767adf4";
+//     const targetParagraph = document.querySelector(`p.${targetClass}`);
+
+//     if (targetParagraph) {
+//       // Clone the target paragraph element
+//       const clonedParagraph = targetParagraph.cloneNode(true);
+
+//       clonedParagraph.textContent.replace("npm i", "yarn add"); // Insert the cloned paragraph inside the Temp component
+//       targetParagraph.insertAdjacentElement("afterend", clonedParagraph);
+//     }
+//   }, []);
+
+//   return <div></div>;
+// };
+
+// ReactDOM.createRoot(root).render(<Temp />);
 ReactDOM.createRoot(root).render(<InstructionBlockWrapper />);
