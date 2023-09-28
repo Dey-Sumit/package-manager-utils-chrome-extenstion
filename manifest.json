@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "CRXJS React Vite Example",
+  "version": "1.0.0",
+  "action": { "default_popup": "index.html" },
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.npmjs.com/package/*"],
+      "js": ["src/content.jsx"]
+    }
+  ]
+}
