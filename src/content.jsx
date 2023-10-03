@@ -19,6 +19,7 @@ const InstructionBlockWrapper = () => {
       <InstructionBlock type="yarn" />
       <InstructionBlock type="bun" />
       <InstructionBlock type="pnpm" />
+      <InstructionBlock type="expo" />
     </>
   );
 };
@@ -35,8 +36,9 @@ const getInstallationInstruction = (type, libraryName) => {
     instruction = `pnpm add ${libraryName}${isTypePackage ? " --save-dev" : ""}`;
   } else if (type === "bun") {
     instruction = `bun i ${libraryName}${isTypePackage ? " --save-dev" : ""}`;
+  } else if (type === "expo") {
+    instruction = `npx expo install ${libraryName}${isTypePackage ? "-D" : ""}`;
   }
-
   return instruction.trim();
 };
 
